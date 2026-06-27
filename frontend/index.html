@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inventory Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>Smart Inventory</h2>
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <a href="index.html">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="inventory.html">
+                    <i class="fas fa-boxes"></i>
+                    Inventory
+                </a>
+            </li>
+
+            <li>
+                <a href="alerts.html">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    Alerts
+                </a>
+            </li>
+
+            <li>
+                <a href="reports.html">
+                    <i class="fas fa-chart-bar"></i>
+                    Reports
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= Main Content ================= -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header>
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Smart Inventory Monitoring System</p>
+            </div>
+
+            <div class="date">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <span id="currentDate"></span>
+
+            </div>
+
+        </header>
+
+        <!-- ================= Dashboard Cards ================= -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <i class="fas fa-box card-icon"></i>
+
+                <h3>Total Products</h3>
+
+                <h2 id="totalProducts">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fas fa-warehouse card-icon"></i>
+
+                <h3>Total Stock</h3>
+
+                <h2 id="stockAvailable">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fas fa-triangle-exclamation card-icon"></i>
+
+                <h3>Low Stock</h3>
+
+                <h2 id="lowStock">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fas fa-clock card-icon"></i>
+
+                <h3>Last Update</h3>
+
+                <h2 id="lastUpdate">--</h2>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Inventory Table ================= -->
+
+        <section class="table-section">
+
+            <div class="table-header">
+
+                <h2>Inventory Overview</h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Product</th>
+                        <th>Current Stock</th>
+                        <th>Threshold</th>
+                        <th>Shelf</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="inventoryTable">
+
+                    <!-- JavaScript will insert rows here -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- ================= Bottom Cards ================= -->
+
+        <section class="bottom-cards">
+
+            <div class="bottom-card">
+
+                <h3>Current Shelf Status</h3>
+
+                <p>
+
+                    <span class="green-dot"></span>
+
+                    Shelf Operating Normally
+
+                </p>
+
+            </div>
+
+            <div class="bottom-card">
+
+                <h3>Automated Replenishment</h3>
+
+                <p>
+
+                    Next Recommendation:
+                    <strong id="nextReplenishment">Loading...</strong>
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= JavaScript ================= -->
+
+    <script>
+        // Show Current Date
+        const today = new Date();
+
+        document.getElementById("currentDate").innerHTML =
+            today.toLocaleDateString();
+    </script>
+
+    <!-- Firebase -->
+    <script type="module" src="js/firebase-config.js"></script>
+
+    <!-- Dashboard -->
+    <script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>
