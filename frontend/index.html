@@ -61,7 +61,7 @@
 
     <main class="main-content">
 
-        <!-- Header -->
+        <!-- ================= Header ================= -->
 
         <header>
 
@@ -72,7 +72,7 @@
 
             <div class="date">
 
-                <i class="fa-solid fa-calendar-days"></i>
+                <i class="fas fa-calendar-days"></i>
 
                 <span id="currentDate"></span>
 
@@ -84,6 +84,8 @@
 
         <section class="cards">
 
+            <!-- Total Products -->
+
             <div class="card">
 
                 <i class="fas fa-box card-icon"></i>
@@ -93,6 +95,8 @@
                 <h2 id="totalProducts">0</h2>
 
             </div>
+
+            <!-- Total Stock -->
 
             <div class="card">
 
@@ -104,6 +108,8 @@
 
             </div>
 
+            <!-- Low Stock -->
+
             <div class="card">
 
                 <i class="fas fa-triangle-exclamation card-icon"></i>
@@ -113,6 +119,20 @@
                 <h2 id="lowStock">0</h2>
 
             </div>
+
+            <!-- Shelf Fill -->
+
+            <div class="card">
+
+                <i class="fas fa-chart-column card-icon"></i>
+
+                <h3>Shelf Fill</h3>
+
+                <h2 id="fillLevel">0%</h2>
+
+            </div>
+
+            <!-- Last Update -->
 
             <div class="card">
 
@@ -154,7 +174,7 @@
 
                 <tbody id="inventoryTable">
 
-                    <!-- JavaScript will insert rows here -->
+                    <!-- Filled automatically by app.js -->
 
                 </tbody>
 
@@ -162,15 +182,17 @@
 
         </section>
 
-        <!-- ================= Bottom Cards ================= -->
+        <!-- ================= Bottom Information ================= -->
 
         <section class="bottom-cards">
+
+            <!-- Shelf Status -->
 
             <div class="bottom-card">
 
                 <h3>Current Shelf Status</h3>
 
-                <p>
+                <p id="shelfStatus">
 
                     <span class="green-dot"></span>
 
@@ -180,14 +202,21 @@
 
             </div>
 
+            <!-- Next Replenishment -->
+
             <div class="bottom-card">
 
                 <h3>Automated Replenishment</h3>
 
                 <p>
 
-                    Next Recommendation:
-                    <strong id="nextReplenishment">Loading...</strong>
+                    Next Recommendation :
+
+                    <strong id="nextReplenishment">
+
+                        Loading...
+
+                    </strong>
 
                 </p>
 
@@ -197,20 +226,21 @@
 
     </main>
 
-    <!-- ================= JavaScript ================= -->
+    <!-- ================= Current Date ================= -->
 
     <script>
-        // Show Current Date
-        const today = new Date();
 
-        document.getElementById("currentDate").innerHTML =
-            today.toLocaleDateString();
+        document.getElementById("currentDate").textContent =
+            new Date().toLocaleDateString();
+
     </script>
 
     <!-- Firebase -->
+
     <script type="module" src="js/firebase-config.js"></script>
 
     <!-- Dashboard -->
+
     <script type="module" src="js/app.js"></script>
 
 </body>
